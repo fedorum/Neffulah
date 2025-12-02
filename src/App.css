@@ -1,0 +1,77 @@
+#headerDiv {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#header {
+    margin: 0;
+    font-size: 32px;
+}
+
+#navigationDiv {
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    justify-content: center;
+    border-top: 1px solid rgb(230, 230, 230);
+    /* border-bottom: 1px solid rgb(230, 230, 230); */
+    background-color: rgb(240, 240, 240);
+}
+
+.navigationPara {
+    margin: 0;
+    font-weight: bold;
+}
+
+#columnDiv {
+    margin: auto;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* gap: 20px; */
+}
+
+#searchDiv {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+}
+
+#searchInput {
+    text-align: center;
+}
+
+#gridDiv {
+    margin: auto;
+    width: 640px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cardDiv {
+    width: 200px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageDiv {
+    width: 100%;
+    height: 80%;
+    background-color: rgb(240, 240, 240);
+}
+
+.cardNameDiv {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(230, 220, 200);
+}
+
+

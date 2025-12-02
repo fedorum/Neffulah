@@ -1,19 +1,11 @@
-interface Props {
-    margin: string;
-}
+import '../App.css'
 
-function Navigation(props: Props) {
-    const products = [
-        'PRODUCTS',
-        'CART'
-    ];
-
+function Navigation() {
     return (
-        <ul className="list-group" style={{ margin: props.margin }}>
-            {products.map(product => (
-                <li className="list-group-item" key={product}>{product}</li>
-            ))}
-        </ul>
+        <div id="navigationDiv">
+            <p className='navigationPara'>PRODUCTS</p>
+            <p className='navigationPara'>CART</p>
+        </div>
     );
 }
 

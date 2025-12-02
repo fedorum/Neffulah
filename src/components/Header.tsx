@@ -1,19 +1,9 @@
-interface Props {
-    display: 'flex';
-    justifyContent: string;
-    margin: string;
-}
+import '../App.css';
 
-function Header(props: Props) {
-    const style = {
-        display: props.display,
-        justifyContent: props.justifyContent,
-        margin: props.margin
-    };
-
+function Header() {
     return (
-        <div style={style}>
-            <h1>Neffulah</h1>
+        <div id="headerDiv">
+            <p id="header">NEFFULAH</p>
         </div>
     );
 }

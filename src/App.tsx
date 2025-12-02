@@ -1,13 +1,15 @@
 import Header from "./components/Header"
 import Navigation from "./components/Navigation";
+import Column from "./components/Column";
 
 function App() {
   return (
-      <div>
-        <Header margin="10px" display="flex" justifyContent="center"></Header>
-        <Navigation margin="10px"></Navigation>
-      </div>
+      <>
+        <Header></Header>
+        <Navigation></Navigation>
+        <Column></Column>
+      </>
   );
 }
 
-export default App
+export default App;
