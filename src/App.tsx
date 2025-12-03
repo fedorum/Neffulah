@@ -1,13 +1,15 @@
 import Header from "./components/Header"
 import Navigation from "./components/Navigation";
-import Column from "./components/Column";
+import Products from "./components/Products";
+import Footer from "./components/Footer";
 
 function App() {
   return (
       <>
         <Header></Header>
         <Navigation></Navigation>
-        <Column></Column>
+        <Products></Products>
+        <Footer></Footer>
       </>
   );
 }

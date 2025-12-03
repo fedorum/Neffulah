@@ -1,3 +1,17 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins";
+    /* color: white; */
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+}
+
 #headerDiv {
     margin: 20px;
     display: flex;
@@ -12,66 +26,99 @@
 #navigationDiv {
     padding: 12px;
     display: flex;
+    position: sticky;
+    top: 0;
     flex-direction: row;
     gap: 28px;
     justify-content: center;
-    border-top: 1px solid rgb(230, 230, 230);
-    /* border-bottom: 1px solid rgb(230, 230, 230); */
-    background-color: rgb(240, 240, 240);
+    border-top: 1px solid rgb(235, 235, 235);
+    background-color: rgb(245, 245, 245);
 }
 
 .navigationPara {
-    margin: 0;
     font-weight: bold;
 }
 
-#columnDiv {
-    margin: auto;
-    width: 640px;
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    /* gap: 20px; */
-}
-
-#searchDiv {
+#productsDiv {
     margin: 20px;
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    justify-content: center;
+    flex: 1;
+}
+
+.leftColumn {
+    width: 70%;
+    margin-right: 20px;
+}
+
+#searchDiv {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #searchInput {
-    text-align: center;
+    width: 225px;
+    padding: 5px 10px;
+    font-family: "Poppins";
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 3px;
 }
 
 #gridDiv {
-    margin: auto;
-    width: 640px;
+    max-width: 790px;
+    /* margin-left: auto; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    float: right;
+    justify-content: flex-end;
 }
 
 .cardDiv {
-    width: 200px;
-    height: 240px;
+    width: 250px;
+    height: 300px;
     display: flex;
     flex-direction: column;
 }
 
 .imageDiv {
-    width: 100%;
-    height: 80%;
-    background-color: rgb(240, 240, 240);
+    height: 75%;
+    background-color: rgb(245, 245, 245);
 }
 
-.cardNameDiv {
-    width: 100%;
-    height: 20%;
-    background-color: rgb(230, 220, 200);
+.nameDiv {
+    height: 15%;
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(240, 235, 210);
 }
 
+.rightColumn {
+    width: 30%;
+    margin-right: 20px;
+}
 
+#filterDiv {
+    width: 300px;
+    max-width: calc(100% - 20px);
+    /* height: 313px; */
+    padding: 20px;
+    background-color: rgb(245, 245, 245);
+}
+
+#filter {
+    font-size: 20px;
+}
+
+#footerDiv {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background-color: rgb(100, 100, 100);
+}
+
+#footerContact {
+    font-weight: bold;
+}

@@ -1,10 +1,19 @@
 import '../App.css';
 
-function Card() {
+interface Props {
+    index: number;
+    name: string;
+}
+
+function Card(props: Props) {
     return (
         <div className='cardDiv'>
-            <div className='imageDiv'></div>
-            <div className='cardNameDiv'></div>
+            <div className='imageDiv'>
+                {/* insert image */}
+            </div>
+            <div className='nameDiv'>
+                <p>{props.name}</p>
+            </div>
         </div>
     );
 }
