@@ -1,16 +1,27 @@
+/* UNIVERSAL SETTINGS */
+
 body {
+    min-width: 507px;
     min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
     font-family: "Poppins";
-    /* color: white; */
 }
 
 p {
     margin: 0;
     font-size: 14px;
 }
+
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+/* HEADER */
 
 #headerDiv {
     margin: 20px;
@@ -22,6 +33,8 @@ p {
     margin: 0;
     font-size: 32px;
 }
+
+/* NAVIGATION BAR */
 
 #navigationDiv {
     padding: 12px;
@@ -39,6 +52,8 @@ p {
     font-weight: bold;
 }
 
+/* PRODUCTS PAGE */
+
 #productsDiv {
     margin: 20px;
     display: flex;
@@ -46,10 +61,14 @@ p {
     flex: 1;
 }
 
+/* LEFT SIDE OF PRODUCTS PAGE */
+
 .leftColumn {
-    width: 70%;
+    width: 60%;
     margin-right: 20px;
 }
+
+/* SEARCH BAR */
 
 #searchDiv {
     margin-bottom: 20px;
@@ -58,29 +77,47 @@ p {
 }
 
 #searchInput {
-    width: 225px;
+    width: 227px;
     padding: 5px 10px;
     font-family: "Poppins";
     border: 1px solid rgb(225, 225, 225);
     border-radius: 3px;
 }
 
+/* GRID TO DISPLAY PRODUCTS */
+
+:root {
+    --card-w: 250px;
+    --card-h: 300px;
+    --gap: 20px;
+}
+
 #gridDiv {
-    max-width: 790px;
-    /* margin-left: auto; */
+    width: calc(3 * var(--card-w) + 2 * var(--gap));
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: var(--gap);
     float: right;
-    justify-content: flex-end;
 }
 
 .cardDiv {
-    width: 250px;
-    height: 300px;
+    width: var(--card-w);
+    height: var(--card-h);
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 1370px) {
+    #gridDiv {
+        width: calc(2 * var(--card-w) + 1 * var(--gap));
+    }
+}
+
+@media (max-width: 940px) {
+    #gridDiv {
+        width: calc(1 * var(--card-w));
+    }
 }
 
 .imageDiv {
@@ -95,15 +132,19 @@ p {
     background-color: rgb(240, 235, 210);
 }
 
+/* RIGHT SIDE OF PRODUCTS PAGE */
+
 .rightColumn {
-    width: 30%;
+    width: 38%;
     margin-right: 20px;
 }
 
+/* FILTER COLUMN */
+
 #filterDiv {
-    width: 300px;
+    width: 250px;
+    min-width: 158px;
     max-width: calc(100% - 20px);
-    /* height: 313px; */
     padding: 20px;
     background-color: rgb(245, 245, 245);
 }
@@ -111,6 +152,8 @@ p {
 #filter {
     font-size: 20px;
 }
+
+/* PAGE FOOTER */
 
 #footerDiv {
     padding: 20px;
