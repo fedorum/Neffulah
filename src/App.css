@@ -153,6 +153,14 @@ ul {
     font-size: 20px;
 }
 
+.category {
+    margin-top: 10px;
+}
+
+.subCategory {
+    margin-top: 5px;
+}
+
 /* PAGE FOOTER */
 
 #footerDiv {
