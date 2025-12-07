@@ -25,13 +25,17 @@ ul {
 
 #headerDiv {
     margin: 20px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 #header {
-    margin: 0;
     font-size: 32px;
+}
+
+#owner {
+    /* margin-left: 6px; */
+    letter-spacing: 5px;
+    margin-right: -6px;
 }
 
 /* NAVIGATION BAR */
