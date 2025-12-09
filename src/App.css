@@ -81,11 +81,28 @@ ul {
 }
 
 #searchInput {
-    width: 227px;
+    width: 193px;
     padding: 5px 10px;
     font-family: "Poppins";
     border: 1px solid rgb(225, 225, 225);
-    border-radius: 3px;
+    border-right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border: 2px solid rgb(240, 235, 210);
+    border-right: 0;
+}
+
+#searchButton {
+    padding: 10px;
+    background-color: darkgray;
+    border: 1px solid darkgray;
+}
+
+#searchIcon {
+    color: white;
 }
 
 /* GRID TO DISPLAY PRODUCTS */
