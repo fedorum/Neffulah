@@ -1,7 +1,7 @@
 import '../App.css';
-import Grid from './Grid';
-import Search from './Search';
-import Filter from './Filter';
+import Grid from '../components/Grid';
+import Search from '../components/Search';
+import Filter from '../components/Filter';
 
 function Products() {
     return (
