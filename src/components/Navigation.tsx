@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom';
 import '../App.css'
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+const navLinkClass = ({ isActive }: { isActive: boolean }) => isActive ? 'active-link-class' : 'inactive-link-class';
 
 function Navigation() {
     return (
         <div id="navigationDiv">
-            <p className='navigationPara'><Link to="/">PRODUCTS</Link></p>
-            <p className='navigationPara'>CART</p>
+            <NavLink to="/" className={navLinkClass}>PRODUCTS</NavLink>
+            <NavLink to="/cart" className={navLinkClass}>CART</NavLink>
         </div>
     );
 }

@@ -62,10 +62,21 @@ ul {
     background-color: rgb(244, 244, 244);
 }
 
-.navigationPara {
+a {
     margin-right: -1px;
-    font-weight: bold;
     letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(197, 160, 45);
+}
+
+.active-link-class {
+    color: rgb(197, 160, 45);
 }
 
 /* PRODUCTS PAGE */
@@ -194,6 +205,13 @@ ul {
 .subCategory {
     margin-top: 16px;
     color: rgb(137, 137, 137);
+}
+
+/* CART PAGE */
+
+#test {
+    margin: 20px;
+    text-align: center;
 }
 
 /* PAGE FOOTER */
