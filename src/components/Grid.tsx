@@ -53,15 +53,17 @@ function Grid() {
 
     // TESTING
 
-    const [message, setMessage] = useState('');
+    // const [message, setMessage] = useState('');
     
-    useEffect(() => {
-        fetch('/api/products')
-            .then((res) => res.json())
-            .then((data) => setMessage(data.message));
-    }, []);
+    // useEffect(() => {
+    //     fetch('/api/products')
+    //         .then((res) => res.json())
+    //         .then((data) => setMessage(data.message));
+    // }, []);
 
-    return <div id='gridDiv'>{message}</div>;
+    // return <div id='gridDiv'>{message}</div>;
+
+    return <div id='gridDiv'>WIP</div>
 }
 
 export default Grid;
