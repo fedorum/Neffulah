@@ -1,15 +1,15 @@
 import '../App.css';
 
 interface Props {
-    index: number;
     name: string;
+    path: string;
 }
 
 function Card(props: Props) {
     return (
         <div className='cardDiv'>
             <div className='imageDiv'>
-                {/* insert image */}
+                <img src={props.path} alt={props.name}></img>
             </div>
             <div className='nameDiv'>
                 <p>{props.name}</p>

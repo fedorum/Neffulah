@@ -1,22 +1,21 @@
 import '../App.css';
 import Card from './Card';
 
-// interface Props {
-//     images: [];
-// }
+interface Props {
+    images: { name: string; path: string }[];
+}
 
-function Grid() {
-    return <div id='gridDiv'>WIP</div>
+function Grid(props: Props) {
+    const products = props.images;
 
-    // display the images and their names a cards in a grid
-    // return (
-    //     <div id='gridDiv'>
-    //         {images.map((image, index) => (
-    //             // <Card index={index} name='name'}></Card>
-    //             <p>WIP</p>
-    //         ))}
-    //     </div>
-    // );
+    // display the products and their names a cards in a grid
+    return (
+        <div id='gridDiv'>
+            {products.map((image, index) => (
+                <Card key={index} name={image.name} path={image.path}></Card>
+            ))}
+        </div>
+    );
 }
 
 export default Grid;

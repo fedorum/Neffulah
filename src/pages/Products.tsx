@@ -6,27 +6,31 @@ import Filter from '../components/Filter';
 
 function Products() {
     // read in file names, image names, and images into the frontend from the backend
-    // const [fileNames, setfileNames] = useState([]);
-    // const [error, setError] = useState(null);
+    const [fileNames, setfileNames] = useState([]);
+    const [images, setImages] = useState([]);
+    const [error, setError] = useState(null);
 
-    // useEffect(() => {
-    //     fetch('./api/server')
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error("Folder name retrievel error");
-    //             }
-    //             return response.json();
-    //         })
-    //         .then(data => setfileNames(data.fileNames))
-    //         .catch(error => {
-    //             setError(error.messsage);
-    //             console.error("Fetch error:", error);
-    //         });
-    // }, []);
+    useEffect(() => {
+        fetch('./api/server')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Folder name retrievel error");
+                }
+                return response.json();
+            })
+            .then(data => {
+                setfileNames(data.fileNames)
+                setImages(data.images)
+            })
+            .catch(error => {
+                setError(error.messsage);
+                console.error("Fetch error:", error);
+            });
+    }, []);
 
-    // if (error) {
-    //     return <div id='productDiv'>Error: {error}</div>;
-    // }
+    if (error) {
+        return <div id='productDiv'>Error: {error}</div>;
+    }
 
     // function to capitalise the first letter of each word of the file name
     // function capitalise(string) {
@@ -44,14 +48,11 @@ function Products() {
     //     return capitalisedString.join(" ");
     // }
 
-    // TEST
-    const fileNames = ['bedding', 'clothing'];
-
     return (
         <div id='productsDiv'>
             <div className='leftColumn'>
                 <Search></Search>
-                <Grid></Grid>
+                <Grid images={images}></Grid>
             </div>
             <div className='rightColumn'>
                 <Filter fileNames={fileNames}></Filter>

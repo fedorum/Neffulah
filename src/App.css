@@ -120,7 +120,7 @@ a:hover {
 #searchButton {
     padding: 12px;
     background-color: rgb(50, 50, 50);
-    border: 1px solid rgb(225, 225, 225);
+    border: 1px solid rgb(50, 50, 50);;
     border-radius: 0 3px 3px 0;
 }
 
