@@ -8,6 +8,7 @@ function Navigation() {
         <div id="navigationDiv">
             <NavLink to="/" className={navLinkClass}>PRODUCTS</NavLink>
             <NavLink to="/cart" className={navLinkClass}>CART</NavLink>
+            <NavLink to="/admin" className={navLinkClass}>ADMIN</NavLink>
         </div>
     );
 }
