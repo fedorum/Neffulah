@@ -10,7 +10,7 @@ function Grid(props: Props) {
 
     // display the products and their names a cards in a grid
     return (
-        <div id='gridDiv'>
+        <div className='gridDiv'>
             {products.map((image, index) => (
                 <Card key={index} name={image.name} path={image.path}></Card>
             ))}

@@ -34,7 +34,6 @@ ul {
     display: inline-block;
     transform: scaleY(1.5);
     color: rgb(197, 160, 45);
-    /* line-height: 40px; */
     font-size: 32px;
     font-weight: bold;
     font-family: "Lucida Console", "Courier New", monospace;
@@ -79,14 +78,16 @@ a:hover {
     color: rgb(197, 160, 45);
 }
 
-/* PRODUCTS PAGE */
+/* PAGE PRESETS */
 
-#productsDiv {
+.pageDiv {
     margin: 20px auto;
     display: flex;
     flex-direction: row;
     flex: 1;
 }
+
+/* PRODUCTS PAGE */
 
 /* LEFT SIDE OF PRODUCTS PAGE */
 
@@ -141,7 +142,7 @@ a:hover {
     --gap: 20px;
 }
 
-#gridDiv {
+.gridDiv {
     width: calc(3 * var(--card-w) + 2 * var(--gap));
     display: flex;
     flex-direction: row;
@@ -197,21 +198,51 @@ a:hover {
     color: rgb(75, 75, 75);
 }
 
-.category {
+.filterCategory {
     margin-top: 16px;
     color: rgb(137, 137, 137);
 }
 
-.subCategory {
+.filterSubCategory {
     margin-top: 16px;
     color: rgb(137, 137, 137);
 }
 
 /* CART PAGE */
 
-#test {
-    margin: 20px;
-    text-align: center;
+
+
+/* ADMIN PAGE */
+
+.adminButton {
+    padding: 6px 10px;
+    background-color: rgb(244, 244, 244);
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 3px;
+    box-shadow: 0 2px rgb(234, 234, 234);
+    font-family: "Poppins";
+}
+
+.adminButton:hover {
+    background-color: rgb(234, 234, 234);
+    cursor: pointer;
+}
+
+.adminButton:active {
+    box-shadow: 0 1px rgb(224, 224, 224);
+    transform: translateY(1px);
+}
+
+.editDiv {
+    margin-bottom: 12px;
+}
+
+/* .categoryDiv {
+    margin-bottom: 12px;
+} */
+
+.adminCategoryP {
+    margin: 12px 0px;
 }
 
 /* PAGE FOOTER */

@@ -14,7 +14,7 @@ function Products() {
         fetch('./api/server')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Folder name retrievel error");
+                    throw new Error("Cannot fetch file names and images!");
                 }
                 return response.json();
             })
@@ -24,7 +24,7 @@ function Products() {
             })
             .catch(error => {
                 setError(error.messsage);
-                console.error("Fetch error:", error);
+                console.error(error);
             });
     }, []);
 
@@ -49,7 +49,7 @@ function Products() {
     // }
 
     return (
-        <div id='productsDiv'>
+        <div className='pageDiv'>
             <div className='leftColumn'>
                 <Search></Search>
                 <Grid images={images}></Grid>

@@ -11,7 +11,7 @@ function Filter(props: Props) {
         <div id='filterDiv'>
             <p id='filter'>Filter</p>
             {fileNames.map((fileName, index) => (
-                <p className='category' key={index}>{fileName}</p>
+                <p className='filterCategory' key={index}>{fileName}</p>
             ))}
         </div>
     );

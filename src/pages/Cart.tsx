@@ -2,8 +2,8 @@ import '../App.css';
 
 function Products() {
     return (
-        <div id='cartDiv'>
-            <p id='test'>WIP</p>
+        <div className='pageDiv'>
+            <p>WIP</p>
         </div>
     );
 }
