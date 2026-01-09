@@ -1,38 +1,38 @@
 import { useState } from 'react';
 import '../App.css';
-import Grid from '../components/Grid';
+import Category from '../components/Category';
 import Filter from '../components/Filter';
 
 function Admin() {
-    const [categories, setCategories] = useState<string[]>([]);
+    const [categoryIDs, setCategoryIDs] = useState<number[]>([]);
     // FOR TESTING
-    const images = [{ name: "Pyjamas", path: "Pyjamas"}];
-    const fileNames = ["bedding"];
+    // var id = 0;
 
     const addCategory = () => {
-        const newCategory = "Category";
-
-        setCategories([...categories, newCategory]);
+        // ADDING IDS NEED TO BE STORED IN SERVER
+        // const newCategoryID = id;
+        // id += 1;
+        const newCategoryID = Date.now();
+        setCategoryIDs([...categoryIDs, newCategoryID]);
     }
 
     return (
         <div className='pageDiv'>
+
             <div className='leftColumn'>
-                <div className='editDiv'>
+                <div id='addCategoryDiv'>
                     <button className='adminButton' onClick={addCategory}>Add category</button>
                 </div>
 
-                {/* PROBLEM WITH DIV CONTAINMENT */}
-                {categories.map((category, index) => (
-                    <div className='categoryDiv' key={index}>
-                        <p className='adminCategoryP'>{category}</p>
-                        <Grid images={images}></Grid>
-                    </div>
+                {categoryIDs.map((id) => (
+                    <Category key={id}></Category>
                 ))}
             </div>
+
             <div className='rightColumn'>
-                <Filter fileNames={fileNames}></Filter>
+                <Filter categoryIDs={categoryIDs}></Filter>
             </div>
+
         </div>
     );
 }

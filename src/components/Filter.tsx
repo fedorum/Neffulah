@@ -1,17 +1,17 @@
 import '../App.css';
 
 interface Props {
-    fileNames: string[];
+    categoryIDs: number[];
 }
 
 function Filter(props: Props) {
-    const fileNames = props.fileNames;
+    const categoryIDs = props.categoryIDs;
     
     return (
         <div id='filterDiv'>
             <p id='filter'>Filter</p>
-            {fileNames.map((fileName, index) => (
-                <p className='filterCategory' key={index}>{fileName}</p>
+            {categoryIDs.map((categoryID, index) => (
+                <p className='filterCategory' key={index}>{categoryID}</p>
             ))}
         </div>
     );

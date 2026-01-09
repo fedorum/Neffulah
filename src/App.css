@@ -98,7 +98,6 @@ a:hover {
 /* SEARCH BAR */
 
 #searchDiv {
-    margin-bottom: 20px;
     display: flex;
     justify-content: flex-end;
 }
@@ -144,6 +143,7 @@ a:hover {
 
 .gridDiv {
     width: calc(3 * var(--card-w) + 2 * var(--gap));
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -156,18 +156,6 @@ a:hover {
     height: var(--card-h);
     display: flex;
     flex-direction: column;
-}
-
-@media (max-width: 1160px) {
-    #gridDiv {
-        width: calc(2 * var(--card-w) + 1 * var(--gap));
-    }
-}
-
-@media (max-width: 890px) {
-    #gridDiv {
-        width: calc(1 * var(--card-w));
-    }
 }
 
 .imageDiv {
@@ -233,16 +221,38 @@ a:hover {
     transform: translateY(1px);
 }
 
-.editDiv {
-    margin-bottom: 12px;
+#addCategoryDiv {
+    width: calc(3 * var(--card-w) + 2 * var(--gap));
 }
 
-/* .categoryDiv {
-    margin-bottom: 12px;
-} */
+.categoryDiv {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
-.adminCategoryP {
-    margin: 12px 0px;
+.addSubCategoryDiv {
+    display: flex;
+    gap: 20px;
+}
+
+.adminCategoryInput {
+    width: calc(var(--card-w) - 18px);
+    padding: 4px 8px;
+    /* margin-top: 2px; */
+    border: 1px solid rgb(244, 244, 244);
+    background-color: rgb(244, 244, 244);
+    font-family: "Poppins";
+    font-size: 16px;
+}
+
+.adminCategoryInput:hover {
+    background-color: rgb(234, 234, 234);
+}
+
+.adminCategoryInput:focus {
+    background-color: rgb(234, 234, 234);
+    outline: none;
 }
 
 /* PAGE FOOTER */
@@ -256,4 +266,20 @@ a:hover {
 
 #footerContact {
     font-weight: bold;
+}
+
+/* UNIVERSAL MEDIA QUERIES */
+
+@media (max-width: 1150px) {
+    .gridDiv,
+    #addCategoryDiv {
+        width: calc(2 * var(--card-w) + 1 * var(--gap));
+    }
+}
+
+@media (max-width: 880px) {
+    .gridDiv,
+    #addCategoryDiv {
+        width: calc(1 * var(--card-w));
+    }
 }
