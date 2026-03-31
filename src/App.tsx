@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header"
 import Navigation from "./components/Navigation";
+import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Admin from "./pages/Admin";
@@ -12,7 +13,8 @@ function App() {
       <Header></Header>
       <Navigation></Navigation>
       <Routes>
-        <Route path="/" element={<Products></Products>}></Route>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/products" element={<Products></Products>}></Route>
         <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
       </Routes>
