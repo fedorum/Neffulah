@@ -8,7 +8,7 @@ interface Props {
 function Grid(props: Props) {
     const products = props.images;
 
-    // display the products and their names a cards in a grid
+    // display the product images and their names as cards in a grid
     return (
         <div className='gridDiv'>
             {products.map((image, index) => (

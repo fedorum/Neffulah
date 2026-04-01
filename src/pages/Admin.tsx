@@ -3,17 +3,44 @@ import '../App.css';
 import Category from '../components/Category';
 import Filter from '../components/Filter';
 
-function Admin() {
-    const [categoryIDs, setCategoryIDs] = useState<number[]>([]);
-    // FOR TESTING
-    // var id = 0;
+interface ProductImage {
+    name: string;
+    id: number;
+}
 
-    const addCategory = () => {
-        // ADDING IDS NEED TO BE STORED IN SERVER
-        // const newCategoryID = id;
-        // id += 1;
-        const newCategoryID = Date.now();
-        setCategoryIDs([...categoryIDs, newCategoryID]);
+function Admin() {
+    const [productImages, setProductImages] = useState<ProductImage[]>([]);
+    const [folderNames, setFolderNames] = useState<string[]>([]);
+
+    const selectProductImageDirectory = async () => {
+        try {
+            // @ts-ignore - this prevents TypeScript from detecting erros related to the File System Access API
+            const directoryHandler = await window.showDirectoryPicker();
+            const productImages: ProductImage[] = [];
+
+            // iterating through the images/ folders located in the local directory
+            for await (const entry of directoryHandler.values()) {
+                // retrieving the names of images and saving them to state
+                if (entry.kind === 'file') {
+                    const file = await entry.getFile();
+
+                    if (file.type.startsWith("image/")) {
+                        productImages.push({
+                            name: file.name,
+                            id: Date.now()
+                        });
+                    }
+                }
+                // retrieving the names of folders and saving them to state
+                else if (entry.kind === 'directory') {
+                    folderNames.push(entry.name);
+                }
+            }
+            setProductImages(productImages);
+            setFolderNames(folderNames);
+        } catch (error) {
+            console.error("Directory selection cancelled or failed:", error);
+        }
     }
 
     return (
@@ -21,16 +48,16 @@ function Admin() {
 
             <div className='leftColumn'>
                 <div id='addCategoryDiv'>
-                    <button className='adminButton' onClick={addCategory}>Add category</button>
+                    <button className='adminButton' onClick={selectProductImageDirectory}>Upload Product Images</button>
                 </div>
 
-                {categoryIDs.map((id) => (
-                    <Category key={id}></Category>
+                {folderNames.map((name, index) => (
+                    <Category name={name} key={index}></Category>
                 ))}
             </div>
 
             <div className='rightColumn'>
-                <Filter categoryIDs={categoryIDs}></Filter>
+                <Filter folderNames={folderNames}></Filter>
             </div>
 
         </div>
