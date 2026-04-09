@@ -1,6 +1,6 @@
 import '../App.css';
 
-function Products() {
+function Cart() {
     return (
         <div className='pageDiv'>
             <p>WIP</p>
@@ -8,4 +8,4 @@ function Products() {
     );
 }
 
-export default Products;
+export default Cart;

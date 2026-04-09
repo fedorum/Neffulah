@@ -4,11 +4,9 @@ import Card from './Card';
 interface Product {
     name: string;
     path: string;
-    // url to image stored in database
 }
 
 interface Props {
-    // images: { name: string; path: string }[];
     products: Product[];
 }
 
