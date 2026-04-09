@@ -2,7 +2,7 @@ import '../App.css'
 import { NavLink } from 'react-router-dom';
 
 // sets the navigation link of the current displayed page to be active, highlighting its name
-const navLinkClass = ({ isActive }: { isActive: boolean }) => isActive ? 'active-link-class' : 'inactive-link-class';
+const navLinkClass = ({ isActive }: { isActive: boolean }) => isActive ? 'active-nav-link' : 'inactive-nav-link';
 
 function Navigation() {
     return (

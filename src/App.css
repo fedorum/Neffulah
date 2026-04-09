@@ -61,7 +61,7 @@ ul {
     background-color: rgb(244, 244, 244);
 }
 
-a {
+.inactive-nav-link {
     margin-right: -1px;
     letter-spacing: 1px;
     font-size: 14px;
@@ -70,12 +70,17 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+.inactive-nav-link:hover {
     color: rgb(197, 160, 45);
 }
 
-.active-link-class {
+.active-nav-link {
+    margin-right: -1px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: bold;
     color: rgb(197, 160, 45);
+    text-decoration: none;
 }
 
 /* PAGE PRESETS */
@@ -143,7 +148,6 @@ a:hover {
 
 .gridDiv {
     width: calc(3 * var(--card-w) + 2 * var(--gap));
-    margin-top: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -186,14 +190,30 @@ a:hover {
     color: rgb(75, 75, 75);
 }
 
-.filterCategory {
-    margin-top: 16px;
-    color: rgb(137, 137, 137);
+.shift-right {
+    margin-left: 24px;
 }
 
-.filterSubCategory {
+.inactive-filter-link {
     margin-top: 16px;
+    font-size: 14px;
+    font-weight: normal;
     color: rgb(137, 137, 137);
+    text-decoration: none;
+    display: flex;
+}
+
+.inactive-filter-link:hover {
+    text-decoration: underline;
+}
+
+.active-filter-link {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(137, 137, 137);
+    text-decoration: underline;
+    display: flex;
 }
 
 /* CART PAGE */
@@ -221,11 +241,16 @@ a:hover {
     transform: translateY(1px);
 }
 
-#addCategoryDiv {
+#productDirectoryDiv {
     width: calc(3 * var(--card-w) + 2 * var(--gap));
 }
 
-.categoryDiv {
+#productDirectoryHeader {
+    margin: 16px 0px;
+    display: flex;
+}
+
+/* .categoryDiv {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -239,7 +264,6 @@ a:hover {
 .adminCategoryInput {
     width: calc(var(--card-w) - 18px);
     padding: 4px 8px;
-    /* margin-top: 2px; */
     border: 1px solid rgb(244, 244, 244);
     background-color: rgb(244, 244, 244);
     font-family: "Poppins";
@@ -253,7 +277,7 @@ a:hover {
 .adminCategoryInput:focus {
     background-color: rgb(234, 234, 234);
     outline: none;
-}
+} */
 
 /* PAGE FOOTER */
 
@@ -272,14 +296,14 @@ a:hover {
 
 @media (max-width: 1150px) {
     .gridDiv,
-    #addCategoryDiv {
+    #productDirectoryDiv {
         width: calc(2 * var(--card-w) + 1 * var(--gap));
     }
 }
 
 @media (max-width: 880px) {
     .gridDiv,
-    #addCategoryDiv {
+    #productDirectoryDiv {
         width: calc(1 * var(--card-w));
     }
 }
