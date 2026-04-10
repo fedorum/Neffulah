@@ -1,9 +1,11 @@
 import '../App.css';
 import Card from './Card';
+import { useSearchParams } from "react-router-dom";
 
 interface Product {
     name: string;
     path: string;
+    category: string;
 }
 
 interface Props {
@@ -11,7 +13,14 @@ interface Props {
 }
 
 function Grid(props: Props) {
-    const products = props.products;
+    const [searchParams] = useSearchParams();
+    const filter = searchParams.get("category");
+
+    let products = props.products;
+    // filter product list based on category search parameter
+    if (filter !== null && filter !== "allProducts") {
+        products = products.filter(product => product.category === filter);
+    }
 
     // display the product images and their names as cards in a grid
     return (

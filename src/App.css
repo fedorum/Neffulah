@@ -200,6 +200,7 @@ ul {
     font-weight: normal;
     color: rgb(137, 137, 137);
     text-decoration: none;
+    cursor: pointer;
     display: flex;
 }
 
@@ -213,6 +214,7 @@ ul {
     font-weight: normal;
     color: rgb(137, 137, 137);
     text-decoration: underline;
+    cursor: pointer;
     display: flex;
 }
 
@@ -247,6 +249,7 @@ ul {
 
 #productDirectoryHeader {
     margin: 16px 0px;
+    color: rgb(137, 137, 137);
     display: flex;
 }
 

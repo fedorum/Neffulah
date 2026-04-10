@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../App.css';
 import Search from '../components/Search';
 import Grid from '../components/Grid';
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Filter from '../components/Filter';
 
 interface Folder {
@@ -15,23 +15,28 @@ interface Product {
     id: number;
     name: string;
     path: string;
+    category: string;
 }
 
 function Admin() {
     const [folders, setFolders] = useState<Folder[]>([]);
     const [products, setProducts] = useState<Product[]>([]);
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+    const location = useLocation();
     const category = searchParams.get('category');
+    const parent = searchParams.get('parent');
 
     // function to retrieve the name of the file when an image is detected in a folder
-    const retrieveProduct = async (entry: FileSystemFileHandle, products: Product[]) => {
+    const retrieveProduct = async (entry: FileSystemFileHandle, category: string, products: Product[]) => {
         const file = await entry.getFile();
 
         if (file.type.startsWith("image/")) {
             products.push({
                 id: Date.now(),
                 name: file.name,
-                path: "Image"
+                path: "Image",
+                category: category
             });
         }
     }
@@ -49,6 +54,7 @@ function Admin() {
                 
                 // enter folder
                 if (entry.kind === 'directory') {
+                    // add folder to list of folders
                     const folderEntry = entry;
                     const folder: Folder = {
                         id: Date.now(),
@@ -61,6 +67,7 @@ function Admin() {
 
                         // enter subfolder
                         if (entry.kind === 'directory') {
+                            // add subfolder to list of folders
                             const subfolderEntry = entry;
                             const folder: Folder = {
                                 id: Date.now(),
@@ -72,22 +79,22 @@ function Admin() {
                             for await (const entry of subfolderEntry.values()) {
                                 // if entry is an image, retrieve product image
                                 if (entry.kind === 'file') {
-                                    retrieveProduct(entry, products);
+                                    retrieveProduct(entry, subfolderEntry.name, products);
                                 }
                             }
                         }
 
                         // if entry is an image, retrieve product image
                         else if (entry.kind === 'file') {
-                            retrieveProduct(entry, products);
+                            retrieveProduct(entry, folderEntry.name, products);
                         }
                     }
                 }
             }
             
+            navigate("/admin/productsUploaded?category=allProducts");
             setFolders(folders);
             setProducts(products);
-            setSearchParams("?category=products");
         } catch (error) {
             console.error("Directory selection cancelled or failed:", error);
         }
@@ -102,9 +109,23 @@ function Admin() {
                     <button className='adminButton' onClick={selectFolderDirectory}>Select Product Directory</button>
                 </div>
 
-                <p id='productDirectoryHeader'>{category}</p>
+                <div id='categoryDisplayed'>
+                    {location.pathname !== "/admin/productsUploaded" ?
+                        (<p id='productDirectoryHeader'>No products uploaded</p>) 
+                        : 
+                        (category === "allProducts" ? 
+                            (<p id='productDirectoryHeader'>All products</p>) 
+                            : 
+                            (parent === null ? 
+                                (<p id='productDirectoryHeader'>{`All products > ${category}`}</p>)
+                                :
+                                (<p id='productDirectoryHeader'>{`All products > ${parent} > ${category}`}</p>)
+                            )
+                        )
+                    }
+                </div>
 
-                <Grid products={products}></Grid>
+                {location.pathname !== "/admin" ? <Grid products={products}></Grid> : null}
             </div>
 
             <div className='rightColumn'>
