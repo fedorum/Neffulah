@@ -1,6 +1,6 @@
 import '../App.css';
-import Card from './Card';
 import { useSearchParams } from "react-router-dom";
+import Card from './Card';
 
 interface Product {
     name: string;

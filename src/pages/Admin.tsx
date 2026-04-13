@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import '../App.css';
+import { useState } from 'react';
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Search from '../components/Search';
 import Grid from '../components/Grid';
-import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Filter from '../components/Filter';
 
 interface Folder {
