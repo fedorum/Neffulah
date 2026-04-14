@@ -39,7 +39,7 @@ function Admin() {
                 category: category
             });
         }
-    }
+    };
 
     // function to select the folder directory to read folder/ file names and images
     const selectFolderDirectory = async () => {
@@ -98,7 +98,7 @@ function Admin() {
         } catch (error) {
             console.error("Directory selection cancelled or failed:", error);
         }
-    }
+    };
 
     return (
         <div className='pageDiv'>
