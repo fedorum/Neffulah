@@ -32,11 +32,17 @@ function Grid(props: Props) {
 
     // display the product images and their names as cards in a grid
     return (
-        <div className='gridDiv'>
-            {products.map((product, index) => (
-                <Card key={index} name={product.name} path={product.path}></Card>
-            ))}
-        </div>
+        <>
+            {(search !== null && products.length === 0) ? 
+                (<p>No products found</p>)
+                :
+                (<div className='gridDiv'>
+                    {products.map((product, index) => (
+                        <Card key={index} name={product.name} path={product.path}></Card>
+                    ))}
+                </div>)
+            }
+        </>
     );
 }
 
