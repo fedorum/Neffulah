@@ -15,15 +15,26 @@ function Filter(props: Props) {
     const categories = props.folders;
     const [searchParams, setSearchParams] = useSearchParams();
     const activeCategory = searchParams.get('category');
+    const activeSearch = searchParams.get('search');
     const location = useLocation();
 
-    // sets the search params for the respective categories when clicked on
-    const setURLCategory = (category: string, parent: string) => {
+    // sets the respective categories and any active search query in the search params
+    const setCategoryAndSearch = (category: string, parent: string, search: any) => {
         if (category === parent) {
-            setSearchParams({ category: category });
+            if (search === null) {
+                setSearchParams({ category: category });
+            }
+            else {
+                setSearchParams({ category: category, search: search });
+            }
         }
         else {
-            setSearchParams({ category: category, parent: parent });
+            if (search === null) {
+                setSearchParams({ category: category, parent: parent });
+            }
+            else {
+                setSearchParams({ category: category, parent: parent, search: search });
+            }
         }
     };
 
@@ -33,7 +44,7 @@ function Filter(props: Props) {
 
             {location.pathname === "/admin/productsUploaded" ?
                 (<p 
-                    onClick={() => setURLCategory("allProducts", "allProducts")}
+                    onClick={() => setCategoryAndSearch("allProducts", "allProducts", activeSearch)}
                     className={
                         `${activeCategory === "allProducts" ? 'active-filter-link' : 'inactive-filter-link'}`
                     }
@@ -48,7 +59,7 @@ function Filter(props: Props) {
                 ((categories.map((category) => (
                     <p 
                         key={category.id}
-                        onClick={() => setURLCategory(category.name, category.parent)}
+                        onClick={() => setCategoryAndSearch(category.name, category.parent, activeSearch)}
                         className={
                             `${activeCategory === category.name ? 'active-filter-link' : 'inactive-filter-link'}
                             ${category.name === category.parent ? '' : 'shift-right'}`
