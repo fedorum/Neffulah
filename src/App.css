@@ -190,8 +190,13 @@ ul {
     color: rgb(75, 75, 75);
 }
 
-.shift-right {
-    margin-left: 24px;
+#noCategoriesFound {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(137, 137, 137);
+    text-decoration: none;
+    display: flex;
 }
 
 .inactive-filter-link {
@@ -218,11 +223,26 @@ ul {
     display: flex;
 }
 
+.shift-right {
+    margin-left: 24px;
+}
+
 /* CART PAGE */
 
 
 
 /* ADMIN PAGE */
+
+#productDirectoryDiv {
+    margin: 16px 0px;
+    width: calc(3 * var(--card-w) + 2 * var(--gap));
+}
+
+#productDirectoryHeader {
+    margin: 16px 0px;
+    color: rgb(137, 137, 137);
+    display: flex;
+}
 
 .adminButton {
     padding: 6px 10px;
@@ -243,44 +263,9 @@ ul {
     transform: translateY(1px);
 }
 
-#productDirectoryDiv {
-    width: calc(3 * var(--card-w) + 2 * var(--gap));
+#saveButton {
+    float: right;
 }
-
-#productDirectoryHeader {
-    margin: 16px 0px;
-    color: rgb(137, 137, 137);
-    display: flex;
-}
-
-/* .categoryDiv {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.addSubCategoryDiv {
-    display: flex;
-    gap: 20px;
-}
-
-.adminCategoryInput {
-    width: calc(var(--card-w) - 18px);
-    padding: 4px 8px;
-    border: 1px solid rgb(244, 244, 244);
-    background-color: rgb(244, 244, 244);
-    font-family: "Poppins";
-    font-size: 16px;
-}
-
-.adminCategoryInput:hover {
-    background-color: rgb(234, 234, 234);
-}
-
-.adminCategoryInput:focus {
-    background-color: rgb(234, 234, 234);
-    outline: none;
-} */
 
 /* PAGE FOOTER */
 

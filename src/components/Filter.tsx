@@ -69,7 +69,9 @@ function Filter(props: Props) {
                 </p>
                 )))) 
                 : 
-                (null)
+                (<p id='noCategoriesFound'>
+                    No categories found
+                </p>)
             }
         </div>
     );

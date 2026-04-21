@@ -107,9 +107,8 @@ function Admin() {
                 <Search></Search>
                 <div id='productDirectoryDiv'>
                     <button className='adminButton' onClick={selectFolderDirectory}>Select Product Directory</button>
-                </div>
+                    {/* <button className='adminButton' id='saveButton'>Save</button> */}
 
-                <div id='categoryDisplayed'>
                     {location.pathname !== "/admin/productsUploaded" ?
                         (<p id='productDirectoryHeader'>No products uploaded</p>) 
                         : 

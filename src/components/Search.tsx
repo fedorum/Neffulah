@@ -23,13 +23,8 @@ function Search() {
     }, [searchTerm, setSearchParams]);
 
     // 
-    // const handleChange = (event) => {
-    //     setSearchTerm(event.target.value);
-    // };
-
-    // sets the user's search in the search params
-    // const setURLSearch = () => {
-    //     setSearchParams({ search: searchTerm });
+    // const handleRefresh = () => {
+    //     window.location.reload();
     // };
 
     return (
@@ -45,8 +40,7 @@ function Search() {
             </input>
             <button 
                 id='searchButton' 
-                // onClick={(searchTerm) => setSearchParams({ category: searchTerm })}
-                // onClick={setURLSearch}
+                // onClick={handleRefresh}
             >
                 <i className="fas fa-search search-icon" id='searchIcon'></i>
             </button>
