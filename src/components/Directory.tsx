@@ -14,8 +14,12 @@ interface Product {
     category: string;
 }
 
-// 
-function Directory(handleDirectory: any) {
+interface Props {
+    setFolders: React.Dispatch<React.SetStateAction<Folder[]>>;
+    setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+}
+
+function Directory(props: Props) {
     const navigate = useNavigate();
 
     // function to retrieve the name of the file when an image is detected in a folder
@@ -68,14 +72,14 @@ function Directory(handleDirectory: any) {
                             folders.push(folder);
                             
                             for await (const entry of subfolderEntry.values()) {
-                                // if entry is an image, retrieve product image
+                                // if entry is an image, retrieve product details
                                 if (entry.kind === 'file') {
                                     retrieveProduct(entry, subfolderEntry.name, products);
                                 }
                             }
                         }
 
-                        // if entry is an image, retrieve product image
+                        // if entry is an image, retrieve product details
                         else if (entry.kind === 'file') {
                             retrieveProduct(entry, folderEntry.name, products);
                         }
@@ -84,14 +88,15 @@ function Directory(handleDirectory: any) {
             }
             
             navigate("/admin/productsUploaded?category=allProducts");
-            return { folders, products };
+            props.setFolders(folders);
+            props.setProducts(products);
         } catch (error) {
             console.error("Directory selection cancelled or failed:", error);
         }
     };
 
     return (
-        <button className='adminButton' onClick={() => handleDirectory(selectFolderDirectory)}>Select Product Directory</button>
+        <button className='adminButton' onClick={(selectFolderDirectory)}>Select Product Directory</button>
     )
 
 }
