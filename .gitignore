@@ -27,3 +27,6 @@ todo.md
 products
 
 .vercel
+
+.env
+/app/generated/prisma
