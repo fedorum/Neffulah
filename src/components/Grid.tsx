@@ -19,12 +19,10 @@ function Grid(props: Props) {
 
     let products = props.products;
 
-    // filter product list based on category search parameter
     if (filter !== null && filter !== "allProducts") {
         products = products.filter(product => product.category === filter);
     }
 
-    // filter product list based on search search parameter
     if (search !== null) {
         const term = search.toLowerCase();
         products = products.filter(product => product.name.toLocaleLowerCase().includes(term));

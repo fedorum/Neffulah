@@ -37,6 +37,7 @@ function Admin() {
                     <Directory setFolders={setFolders} setProducts={setProducts}></Directory>
                     <Save folders={folders} products={products}></Save>
 
+                    {/* sets the header of the product directory displayed based on the search params */}
                     {location.pathname !== "/admin/productsUploaded" ?
                         (<p id='productDirectoryHeader'>No products uploaded</p>) 
                         : 
