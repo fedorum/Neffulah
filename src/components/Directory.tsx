@@ -1,18 +1,6 @@
 import '../App.css';
-import { useNavigate } from "react-router-dom";
-
-interface Folder {
-    id: number;
-    name: string;
-    parent: string;
-}
-
-interface Product {
-    id: number;
-    name: string;
-    path: string;
-    category: string;
-}
+import { useNavigate } from 'react-router-dom';
+import type { Folder, Product} from '../types';
 
 interface Props {
     setFolders: React.Dispatch<React.SetStateAction<Folder[]>>;
@@ -23,7 +11,7 @@ function Directory(props: Props) {
     const navigate = useNavigate();
 
     // retrieves the name of the product when an image file is detected in a folder
-    const retrieveProduct = async (entry: FileSystemFileHandle, category: string, products: Product[]) => {
+    const retrieveProduct = async (entry: FileSystemFileHandle, category: string, parent: string, products: Product[]) => {
         const file = await entry.getFile();
 
         if (file.type.startsWith("image/")) {
@@ -31,7 +19,8 @@ function Directory(props: Props) {
                 id: Date.now(),
                 name: file.name,
                 path: "Image",
-                category: category
+                category: category,
+                parent: parent
             });
         }
     };
@@ -68,13 +57,13 @@ function Directory(props: Props) {
                             
                             for await (const entry of subfolderEntry.values()) {
                                 if (entry.kind === 'file') {
-                                    retrieveProduct(entry, subfolderEntry.name, products);
+                                    retrieveProduct(entry, subfolderEntry.name, folderEntry.name, products);
                                 }
                             }
                         }
 
                         else if (entry.kind === 'file') {
-                            retrieveProduct(entry, folderEntry.name, products);
+                            retrieveProduct(entry, folderEntry.name, folderEntry.name, products);
                         }
                     }
                 }

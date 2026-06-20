@@ -6,19 +6,7 @@ import Directory from '../components/Directory';
 import Save from '../components/Save';
 import Grid from '../components/Grid';
 import Filter from '../components/Filter';
-
-interface Folder {
-    id: number;
-    name: string;
-    parent: string;
-}
-
-interface Product {
-    id: number;
-    name: string;
-    path: string;
-    category: string;
-}
+import type { Folder, Product } from '../types';
 
 function Admin() {
     const [folders, setFolders] = useState<Folder[]>([]);

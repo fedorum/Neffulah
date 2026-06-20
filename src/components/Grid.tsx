@@ -1,12 +1,7 @@
 import '../App.css';
 import { useSearchParams } from "react-router-dom";
 import Card from './Card';
-
-interface Product {
-    name: string;
-    path: string;
-    category: string;
-}
+import type { Product } from '../types';
 
 interface Props {
     products: Product[];
@@ -14,13 +9,19 @@ interface Props {
 
 function Grid(props: Props) {
     const [searchParams] = useSearchParams();
-    const filter = searchParams.get("category");
+    const category = searchParams.get("category");
+    const parent = searchParams.get("parent");
     const search = searchParams.get("search");
 
     let products = props.products;
 
-    if (filter !== null && filter !== "allProducts") {
-        products = products.filter(product => product.category === filter);
+    if (category !== null && category !== "allProducts") {
+        if (parent !== null) {
+            products = products.filter(product => product.category === category);
+        }
+        else {
+            products = products.filter(product => product.parent === category);
+        }
     }
 
     if (search !== null) {
