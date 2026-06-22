@@ -29,4 +29,4 @@ products
 .vercel
 
 .env
-/app/generated/prisma
+/src/generated/prisma
